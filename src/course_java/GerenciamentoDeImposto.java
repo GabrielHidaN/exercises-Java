@@ -39,5 +39,6 @@ public class GerenciamentoDeImposto {
             valorFormatado = formato.format(salarioComImposto);
             System.out.println("Seu Salario anual com imposto é de :" + valorFormatado);
         }
+        sc.close();
     }
 }

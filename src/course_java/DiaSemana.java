@@ -38,5 +38,7 @@ public class DiaSemana {
                 System.out.println("Opção Inválida ");
                 break;
         }
+        sc.close();
     }
+
 }

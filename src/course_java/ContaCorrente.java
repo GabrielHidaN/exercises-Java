@@ -28,6 +28,7 @@ public class ContaCorrente {
              else{
                  System.out.println("Saldo insuficiente para completar o saque!\n" + "Seu Saldo é de : " + saldo);
              }
+             sc.close();
 
         }
 

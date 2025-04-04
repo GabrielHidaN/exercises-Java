@@ -23,5 +23,7 @@ public class ChallengerOfWhile {
             }
         }
         System.out.printf("A soma dos números é : " + sumOfNumbers);
+        sc.close();
     }
+
 }

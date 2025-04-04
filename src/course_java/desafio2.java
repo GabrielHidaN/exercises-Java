@@ -22,5 +22,6 @@ public class desafio2 {
         else {
             System.out.println("Neutro , seu número é o : " + num);
         }
+        sc.close();
     }
 }
