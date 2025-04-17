@@ -11,9 +11,17 @@ public class Products {
         valueStock = price * quantity;
         return valueStock;
     }
-}
+    public void AddedProduct(int quantityAdded){
+        int valueAdded = quantityAdded;
+        quantity += valueAdded;
+        price *= quantity;
 
-/*
-* Terminar o projeto
-*
-* */
+    }
+
+    public void RemovedProduct(int quantityRemoved){
+        int valueRemoved = quantityRemoved;
+        price -= ((valueRemoved * price )/ quantity) ;
+        quantity -= valueRemoved;
+    }
+
+}
