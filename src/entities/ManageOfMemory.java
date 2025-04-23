@@ -2,12 +2,23 @@ package entities;
 
 public class ManageOfMemory {
     int [] blocoDeMemoria = new int[5];
-    private int tamanhoTotal;
+    public int tamanhoTotal = 0;
     public int tamanhoLivre = 1000;
 
 
+
+    public int getTamanhoLivre() {
+        return tamanhoLivre;
+    }
+
+
+    public int getTamanhoTotal() {
+        return tamanhoTotal;
+    }
+
+
     public void alocarMemoria(int memoriaParaAlocar){
-        if (memoriaParaAlocar < tamanhoLivre){
+        if (memoriaParaAlocar <= tamanhoLivre){
             tamanhoTotal += memoriaParaAlocar;
             tamanhoLivre -= tamanhoTotal;
             for (int i = 0; i < blocoDeMemoria.length ; i++) {
@@ -22,25 +33,25 @@ public class ManageOfMemory {
         }
     }
 
-    public int getTamanhoLivre() {
-        return tamanhoLivre;
-    }
-
-
-    public int getTamanhoTotal() {
-        return tamanhoTotal;
+    public void removerBloco(int indiceRemover){
+        if (blocoDeMemoria[indiceRemover] == 0){
+            System.out.println("Esse Bloco Já Está Vazio");
+        }
+        blocoDeMemoria[indiceRemover] = 0;
+        tamanhoTotal -=  blocoDeMemoria[indiceRemover];
     }
 
     public void mostrarBlocos(){
         for (int i = 0; i < blocoDeMemoria.length; i++) {
             if (blocoDeMemoria[i] > 0) {
-                System.out.printf("Bloco %02d: %d unidades usadas%n", i, blocoDeMemoria[i]);
+                System.out.printf("Bloco %d: %d unidades usadas%n", i, blocoDeMemoria[i]);
             }
             else {
-                System.out.println("Sem blocos Alocados!");
+                System.out.printf("Bloco %d está Vazio%n", i);
             }
         }
     }
 }
 
-// remover bloco
+
+// Resolver erro da memoriaTotal
