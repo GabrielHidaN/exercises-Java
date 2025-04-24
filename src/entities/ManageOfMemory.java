@@ -1,16 +1,24 @@
 package entities;
 
 public class ManageOfMemory {
-    int [] blocoDeMemoria = new int[5];
-    public int tamanhoTotal = 0;
-    public int tamanhoLivre = 1000;
+    private final int [] blocoDeMemoria = new int[5];
+    private int tamanhoTotal;
+    private final int  tamanhoLivre = 1000;
+    private int memoriaTemp;
 
 
-
-    public int getTamanhoLivre() {
-        return tamanhoLivre;
+    public int[] getBlocoDeMemoria() {
+        return blocoDeMemoria;
     }
 
+    public int getMemoriaTemp() {
+        memoriaTemp = tamanhoLivre - tamanhoTotal;
+        return memoriaTemp;
+    }
+
+    public void setTamanhoTotal(int tamanhoTotal) {
+        this.tamanhoTotal = tamanhoTotal;
+    }
 
     public int getTamanhoTotal() {
         return tamanhoTotal;
@@ -18,9 +26,9 @@ public class ManageOfMemory {
 
 
     public void alocarMemoria(int memoriaParaAlocar){
-        if (memoriaParaAlocar <= tamanhoLivre){
+        if (memoriaParaAlocar <= getMemoriaTemp()){
             tamanhoTotal += memoriaParaAlocar;
-            tamanhoLivre -= tamanhoTotal;
+            int i1 = tamanhoLivre - tamanhoTotal;
             for (int i = 0; i < blocoDeMemoria.length ; i++) {
                 if(blocoDeMemoria[i] == 0){
                     blocoDeMemoria[i] = memoriaParaAlocar;
@@ -37,8 +45,9 @@ public class ManageOfMemory {
         if (blocoDeMemoria[indiceRemover] == 0){
             System.out.println("Esse Bloco Já Está Vazio");
         }
-        blocoDeMemoria[indiceRemover] = 0;
         tamanhoTotal -=  blocoDeMemoria[indiceRemover];
+        blocoDeMemoria[indiceRemover] = 0;
+
     }
 
     public void mostrarBlocos(){
@@ -53,5 +62,3 @@ public class ManageOfMemory {
     }
 }
 
-
-// Resolver erro da memoriaTotal

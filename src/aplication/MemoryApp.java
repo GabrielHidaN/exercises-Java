@@ -19,11 +19,13 @@ public class MemoryApp {
         while(true){
             System.out.println(menu);
             options = sc.next();
+            if (options.equals("0")){
+                break;
+            }
             switch (options){
-                case "0":
-                    break;
                 case "1":
-                    System.out.println(memoria.getTamanhoTotal());
+                    System.out.println("Memoria Utilizada : "+ memoria.getTamanhoTotal());
+                    System.out.println("Memoria Livre : " + memoria.getMemoriaTemp());
                     break;
                 case "2":
                     memoria.mostrarBlocos();
@@ -37,7 +39,17 @@ public class MemoryApp {
                     memoria.mostrarBlocos();
                     System.out.println("\nDigite o Bloco que Deseja remover: ");
                     indiceRemover = sc.nextInt();
-                    memoria.removerBloco(indiceRemover);
+                    try {
+                       memoria.removerBloco(indiceRemover);
+                    }catch (ArrayIndexOutOfBoundsException e){
+                        System.out.println(
+                                "================================== \n" +
+                                "ERROR:" + e.getMessage() + "\n" +
+                                "Você deve indicar um índice válido (0 a " +
+                                        (memoria.getBlocoDeMemoria().length - 1) + ").\n" +
+                                "=================================="
+                        );
+                    }
                     break;
                 default:
                     System.out.println(" @@@ Opção Invalida! @@@");
@@ -45,3 +57,5 @@ public class MemoryApp {
         }
     }
 }
+
+// Resolver Exceptions
