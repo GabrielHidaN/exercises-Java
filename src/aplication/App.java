@@ -13,31 +13,38 @@ public class App {
         Scanner sc =  new Scanner(System.in);
 
         String options;
-        String menu = " \n Menu\n [1]Registrar Produto \n [2]Adicionar Produto \n [3]Remover Produto \n [0]Sair \n";
-        Products tv = new Products();
+        String menu = " \n Menu\n [1]Registrar Produto \n [2]Adicionar Produto \n [3]Remover Produto \n [4]Mostrar Estoque \n [0]Sair \n";
+        Products product = new Products();
         while (true){
             System.out.print(menu);
             options = sc.next();
 
             if(options.equals("1")){
                 System.out.println("Nome do Produto: ");
-                tv.name = sc.next();
+                product.name = sc.next();
                 System.out.println("Preço do Produto: ");
-                tv.price = sc.nextDouble();
+                product.price = sc.nextDouble();
                 System.out.println("Quantidade adicionada do Produto: ");
-                tv.quantity = sc.nextInt();
-                double valueStock = tv.TotalValueInStock();
-                System.out.printf("Seu valor de Stock é : %.2f%n" , valueStock);
+                product.quantity = sc.nextInt();
+                double valueStock = product.totalValueInStock();
             }
             else if(options.equals("2")){
                 System.out.println("Digite a Quantidade que deseja adicionar no Estoque : ");
-                tv.AddedProduct(sc.nextInt());
-                System.out.printf("Updated : Sua Quantidade de itens no estoque é : %d  , Seu preço de estoque é %.2f%n" , tv.quantity , tv.price);
+                product.addedProduct(sc.nextInt());
+                System.out.printf("Updated : Sua Quantidade de itens no estoque é : %d "  , product.quantity );
             }
             else if(options.equals("3")){
                 System.out.println("Digite a Quantidade que deseja Remover no Estoque : ");
-                tv.RemovedProduct(sc.nextInt());
-                System.out.printf("Updated : Sua Quantidade de itens no estoque é : %d  , Seu preço de estoque é %.2f%n" , tv.quantity , tv.price);
+                product.removedProduct(sc.nextInt());
+                System.out.printf("Updated : Sua Quantidade de itens no estoque é : %d  , Seu preço de estoque é %.2f%n" , product.quantity);
+            } else if (options.equals("4")) {
+                if (product.name != null){
+                    System.out.println("Products DATA: " + product);
+                } else {
+                    System.out.println("Sem produto Registrado!");
+                }
+
+
             } else if (options.equals("0")) {
                 break;
             }
