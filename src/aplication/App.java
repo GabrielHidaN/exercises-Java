@@ -38,11 +38,9 @@ public class App {
                 product.removedProduct(sc.nextInt());
                 System.out.printf("Updated : Sua Quantidade de itens no estoque é : %d  , Seu preço de estoque é %.2f%n" , product.quantity);
             } else if (options.equals("4")) {
-                if (product.name != null){
-                    System.out.println("Products DATA: " + product);
-                } else {
-                    System.out.println("Sem produto Registrado!");
-                }
+                System.out.println(product.name != null ? "Products DATA: " + product : "Sem produto Registrado!");
+
+
 
 
             } else if (options.equals("0")) {
