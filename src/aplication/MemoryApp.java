@@ -55,6 +55,7 @@ public class MemoryApp {
                     System.out.println(" @@@ Opção Invalida! @@@");
             }
         }
+        sc.close();
     }
 }
 
