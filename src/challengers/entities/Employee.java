@@ -40,4 +40,14 @@ public abstract class Employee implements EmployeeInterface{
         this.baseSalary = baseSalary;
     }
 
+    @Override
+    public void calcularSalario() {
+        System.out.println("O Salario sem Bonificalção é: ");
+
+    }
+
+    @Override
+    public void exibirDetalhes() {
+        System.out.println("oi");
+    }
 }

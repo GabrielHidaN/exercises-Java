@@ -8,12 +8,11 @@ public class Manager extends Employee{
 
     @Override
     public void calcularSalario() {
-        double managerSalary = getBaseSalary() + ( getBaseSalary() * bonificacao);
+
     }
 
     @Override
     public void exibirDetalhes() {
-
+        System.out.println("oi");
     }
-
 }
